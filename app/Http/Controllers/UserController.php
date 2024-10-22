@@ -117,6 +117,12 @@ class UserController extends Controller
         return redirect('/');
     }
 
+    public function kontak()
+    {
+        $data = message::all(); // Fetch all messages
+        return view('message', ['data' => $data]); // Pass data as an associative array
+    }
+
     public function contact(Request $request)
     {
         message::create([
@@ -125,6 +131,7 @@ class UserController extends Controller
             'no' => $request->no,
             'message' => $request->no,
         ]);
+        Alert::success('Sukses', 'Pesan Berhasil Dikirim');
         return redirect('/');
     }
 }

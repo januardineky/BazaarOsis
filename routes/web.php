@@ -20,6 +20,7 @@ Route::get('/', function () {
     return view('landing');
 });
 Route::get('/', [UserController::class, 'landing']);
+Route::post('/contact', [UserController::class, 'contact']);
 Route::get('/login', [UserController::class, 'login']);
 Route::post('/auth/login',[UserController::class,'auth']);
 Route::get('/register',[UserController::class,'register']);
@@ -28,6 +29,7 @@ Route::post('/createuser',[UserController::class,'createuser']);
 Route::middleware(['\App\Http\Middleware\StatusLogin::class'])->group(function () {
     Route::middleware(['\App\Http\Middleware\adminauth::class'])->group(function () {
         Route::get('/index',[ProdukController::class,'index']);
+        Route::get('/index/kontak',[UserController::class,'kontak']);
         Route::get('/index/pelanggan',[UserController::class,'pelanggan']);
         Route::get('/index/pesanan',[UserController::class,'order']);
         Route::post('/index/findorder',[UserController::class,'findorder']);

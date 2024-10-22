@@ -21,6 +21,14 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        // Produk::create([
+        //     'name' => 'tes',
+        //     'kategori' => 'tes',
+        //     'harga' => 10000,
+        //     'stok' => 1,
+        //     'gambar' => '',
+        // ]);
+
         User::create([
             'name' => 'abc',
             'email' => 'abc@gmail.com',

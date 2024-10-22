@@ -159,6 +159,15 @@ class ProdukController extends Controller
             ->where('status', 'Belum Dipesan')
             ->first();
 
+        // Check current stock for the product
+        $currentStock = Produk::where('id', $id)->value('stok');
+
+        // Validate stock availability before proceeding
+        if ($currentStock < 1) {
+            Alert::error('Error', 'Stok Habis');
+            return redirect('/home');
+        }
+
         // Set quantity and subtotal
         if ($existingItem) {
             // If it exists, increment the quantity
@@ -175,18 +184,9 @@ class ProdukController extends Controller
             $jumlah = 1;
             $subtotalValue = $itemHarga * $jumlah;
 
-            // Check current stock for the product
-            $currentStock = Produk::where('id', $id)->value('stok');
-
-            // Check if there is enough stock
-            if ($jumlah > $currentStock) {
-                Alert::error('Error', 'Stok tidak cukup untuk produk ini.');
-                return redirect('/home');
-            }
-
             // Insert into the cart
-            keranjang::insert([
-                'id_user' => auth()->user()->id, // Ensure id_user is included
+            Keranjang::insert([
+                'id_user' => auth()->user()->id,
                 'id_produk' => $id,
                 'jumlah' => $jumlah,
                 'subtotal' => $subtotalValue,
@@ -194,7 +194,7 @@ class ProdukController extends Controller
             ]);
         }
 
-        // Deduct stock from the product
+        // Deduct stock from the product only if the stock is sufficient
         Produk::where('id', $id)->decrement('stok');
 
         // Update total and alert
@@ -252,7 +252,7 @@ class ProdukController extends Controller
         keranjang::where('id_user', $user_id)->update([
         'status' => 'Sudah Dipesan'
         ]);
-        Alert::success('Info', 'Pesanan telah dikirim');
+        Alert::success('Info', 'Pesanan akan dikemas');
         return redirect('/home');
     }
 

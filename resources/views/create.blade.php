@@ -23,7 +23,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark gradient-custom">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="/index">Ini Judul</a>
+            <a class="navbar-brand" href="/index">Bazar Osis</a>
                 <form class="d-flex">
                     <a href="/logout" onclick="return window.confirm('Apakah anda ingin Logout?')" style="text-decoration: none" class="btn btn-outline-light">
                     <i class="bi bi-box-arrow-right"></i>

@@ -21,16 +21,16 @@
     @include('sweetalert::alert')
     <nav class="navbar navbar-expand-lg navbar-dark gradient-custom fixed-top">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="/home">Ini Judul</a>
+            <a class="navbar-brand" href="/home"><- Bazar Osis</a>
             <ul class="navbar-nav" style="margin-right: 500px">
                 <li>
-                    <a class="nav-link active" href="/home/cart">Checkout</a>
+                    <a class="nav-link active" href="/home/cart">Keranjang</a>
                 </li>
                 <li>
-                    <a class="nav-link active" href="/home/dikirim">Dikirim</a>
+                    <a class="nav-link active" href="/home/dikirim">Pesanan</a>
                 </li>
                 <li>
-                    <a class="nav-link active" href="/home/sampai">Sudah Sampai</a>
+                    <a class="nav-link active" href="/home/sampai">Riwayat</a>
                 </li>
             </ul>
                     <a href="/auth/logout" onclick="return window.confirm('Apakah anda ingin Logout?')" style="text-decoration: none" class="btn btn-outline-light">
@@ -38,6 +38,7 @@
                     Logout
                     </a>
             </div>
+        </div>
         </div>
     </nav>
 <section class="h-100">
