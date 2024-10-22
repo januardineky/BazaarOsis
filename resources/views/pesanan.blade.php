@@ -30,7 +30,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark gradient-custom">
         <div class="container px-2 px-lg-3">
             <a class="navbar-brand" href="/index"><- Bazar Osis</a>
-            <div style="margin-right: 400px">
+            <div style="margin-right: 300px">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link active" href="/index/pesanan">Pesanan</a>
@@ -85,7 +85,8 @@
                         <td>{{ $item->total }}</td>
                         <td>{{ $item->status }}</td>
                         <td>
-                            <a href="/index/cart/update/{{ $item->id_user }}" class="btn btn-info text-white" onclick="return window.confirm('Yakin ubah data ini?')">Selesai</a>
+                            {{-- <a href="/index/cart/update/{{ $item->id_user }}" class="btn btn-info text-white" onclick="return window.confirm('Yakin ubah data ini?')">Selesai</a> --}}
+                            <a href="{{ route('updateorder', ['user_id' => $item->user->id]) }}" class="btn btn-info text-white" onclick="return window.confirm('Yakin ubah data ini?')">Selesai</a>
                             <a href="/index/cart/delete/{{ $item->id_user }}" class="btn btn-danger text-white" onclick="return window.confirm('Yakin hapus data ini?')">Hapus</a>
                         </td>
                     </tr>

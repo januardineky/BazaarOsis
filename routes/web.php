@@ -34,7 +34,8 @@ Route::middleware(['\App\Http\Middleware\StatusLogin::class'])->group(function (
         Route::get('/index/pesanan',[UserController::class,'order']);
         Route::post('/index/findorder',[UserController::class,'findorder']);
         Route::get('/index/cart/delete/{id_user}',[UserController::class, 'hapusorder']);
-        Route::get('/index/cart/update/{id_user}',[UserController::class, 'updateorder']);
+        // Route::get('/index/cart/update/{id_user}',[UserController::class, 'updateorder']);
+        Route::get('/index/cart/update/{user_id}', [UserController::class, 'updateorder'])->name('updateorder');
         Route::post('/index/caripelanggan',[UserController::class,'caripelanggan']);
         Route::get('/index/create',[ProdukController::class,'create']);
         Route::get('/index/delete/{id}',[ProdukController::class,'delete']);

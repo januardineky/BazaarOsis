@@ -30,7 +30,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark gradient-custom">
         <div class="container px-2 px-lg-3">
             <a class="navbar-brand" href="/index"><- Bazar Osis</a>
-            <div style="margin-right: 400px">
+            <div style="margin-right: 300px">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link active" href="/index/pesanan">Pesanan</a>
@@ -68,11 +68,6 @@
                         <th scope="col">Nama Pelanggan</th>
                         <th scope="col">Nomor</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Kabupaten/Kota</th>
-                        <th scope="col">Kecamatan</th>
-                        <th scope="col">Kode Pos</th>
-                        <th scope="col">Jalan</th>
-                        <th scope="col">Detail</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -82,11 +77,6 @@
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->no }}</td>
                         <td>{{ $item->email }}</td>
-                        <td>{{ $item->kab }}</td>
-                        <td>{{ $item->kec }}</td>
-                        <td>{{ $item->pos }}</td>
-                        <td>{{ $item->jalan }}</td>
-                        <td>{{ $item->detail }}</td>
                      </tr>
                     @endforeach
                 </tbody>

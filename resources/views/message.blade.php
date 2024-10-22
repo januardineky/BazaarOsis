@@ -30,7 +30,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark gradient-custom">
         <div class="container px-2 px-lg-3">
             <a class="navbar-brand" href="/index"><- Bazar Osis</a>
-            <div style="margin-right: 400px">
+            <div style="margin-right: 300px">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link active" href="/index/pesanan">Pesanan</a>

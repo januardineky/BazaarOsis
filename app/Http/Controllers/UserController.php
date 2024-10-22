@@ -75,6 +75,7 @@ class UserController extends Controller
             }
         }
         Alert::error('Peringatan', 'Username atau Password salah');
+        Alert::success('Sukses', 'Login Berhasil');
         return redirect('/');
 
     }
@@ -97,13 +98,23 @@ class UserController extends Controller
         return view('pesanan', $data);
     }
 
-    public function updateorder(Request $request)
-    {
-        keranjang::where('status', 'Sudah Dipesan')->update([
-            'status' => 'Sudah Sampai'
-        ]);
-        return redirect()->back();
-    }
+    // public function updateorder(Request $request)
+    // {
+    //     keranjang::where('status', 'Sudah Dipesan')->update([
+    //         'status' => 'Sudah Sampai'
+    //     ]);
+    //     return redirect()->back();
+    // }
+
+    public function updateorder($userId)
+{
+    // Update the status of the keranjang entries based on the user's ID and status
+    keranjang::where('status', 'Sudah Dipesan')
+        ->where('id_user', $userId)
+        ->update(['status' => 'Sudah Sampai']);
+
+    return redirect()->back()->with('success', 'Order status updated successfully!');
+}
 
     public function hapusorder(Request $request)
     {

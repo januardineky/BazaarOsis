@@ -114,7 +114,7 @@
               </ul>
                 <form action="/home/cart/pesan" method="post">
                     @csrf
-                    <input type="submit" class="btn text-white" style="background-color: #ffb84d" onclick="return window.confirm('Pesanan sudah sesuai? Anda tidak bisa kembali ke halaman ini setelah memesan')" value="Pesan Sekarang"></input>
+                    <input type="submit" class="btn text-white" style="background-color: #ffb84d" onclick="return window.confirm('Pesanan sudah sesuai?')" value="Pesan Sekarang"></input>
                 </form>
               </div>
             </div>
